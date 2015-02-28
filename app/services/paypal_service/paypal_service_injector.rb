@@ -41,6 +41,9 @@ module PaypalService
           request_cancelled: -> (flow, token) {
             TransactionService::PaypalEvents.request_cancelled(flow, token)
           },
+          details_received: -> (flow, details) {
+            TransactionService::PaypalEvents.details_received(flow, details)
+          },
           payment_created: [],
           payment_updated: -> (flow, payment) { TransactionService::PaypalEvents.payment_updated(flow, payment) }
       })
